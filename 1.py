@@ -16,8 +16,8 @@ sys.setdefaultencoding('utf-8')
 
 helpMessage ="""
  ~~~ Command ~~~
-¤  Tagall     - Tagall Member Group
-¤  Lurking    - Set Point Read
+¤  Summon     - Summon Member Group
+¤  Set    - Set Point Read
 ¤  Result     - Reading Point
 ¤  Ginfo      - Info Grup
 
@@ -105,11 +105,11 @@ admin = "u56b2982adface6b4a64885b02dce37e7"
 
 wait = {
     'contact':False,
-    'autoJoin':True,
+    'autoJoin':False,
     'autoCancel':{"on":False,"members":20},
     'leaveRoom':False,
     'timeline':False,
-    'autoAdd':True,
+    'autoAdd':False,
     'message':" ",
     "lang":"JP",
     "comment":"Auto Like",
@@ -1012,7 +1012,7 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"Silahkan Aktifkan Nama")
 
-            elif msg.text == "Lurking":
+            elif msg.text == "Set":
                 if msg.toType == 2:
                     cl.sendText(msg.to, "Set reading point:" + datetime.now().strftime('\n%Y/%m/%d %H:%M:%S'))
                     try:
@@ -1128,7 +1128,7 @@ def bot(op):
                         except:
                             cl.sendText(msg.to,"Error")
                     
-            elif "Tagall" in msg.text:
+            elif "Summon" in msg.text:
                 group = cl.getGroup(msg.to)
                 k = len(group.members)//500
                 for j in xrange(k+1):
